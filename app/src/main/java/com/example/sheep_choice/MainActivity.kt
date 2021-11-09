@@ -3,6 +3,7 @@ package com.example.sheep_choice
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.view.get
 import com.example.sheep_choice.databinding.ActivityMainBinding
 import java.util.*
 
@@ -11,6 +12,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var adapter:MainAdapter
     private var list = arrayListOf<Int>()
+
+
 
 
     private var secondList =arrayListOf<Int>()
@@ -47,6 +50,7 @@ class MainActivity : AppCompatActivity() {
         })
         adapter.setList(list)
         binding.rvSheep.adapter =adapter
+        binding.counterCardView.text =adapter.counterStr
 
     }
     private fun btnFavorites() {
@@ -54,6 +58,7 @@ class MainActivity : AppCompatActivity() {
         binding.btnGoSecondActivity.setOnClickListener{
             intent.putExtra(IMAGE_KEY,secondList)
             startActivity(intent)
+
         }
     }
     companion object{

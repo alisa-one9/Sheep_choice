@@ -13,7 +13,7 @@ class FavoritesActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityFavoritesBinding.inflate(LayoutInflater.from(this))
+        binding = ActivityFavoritesBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initRecycler()
     }
