@@ -8,30 +8,42 @@
     tools:context=".FavoritesActivity"
     android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/image_from"
-        android:layout_width="120dp"
-        android:layout_height="100dp"
-        android:src="@mipmap/ic_launcher" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_select_from_my_gallery"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="select from my gallery"
-        android:layout_below="@id/image_from"
-        app:cornerRadius="16dp"/>
-
-        <androidx.recyclerview.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_favorites"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_below="@+id/btn_select_from_my_gallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:spanCount="3"
             tools:itemCount="10"
             tools:listitem="@layout/item_sheep"/>
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-2dp"
+        android:layout_marginBottom="40dp"
+        android:backgroundTint="#A7FFEB"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        app:cardCornerRadius="36dp"
+        app:layout_constraintTop_toBottomOf="parent">
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_select_from_my_gallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="select from my gallery"
+            app:cornerRadius="16dp"
+            android:layout_marginStart="5dp"/>
+        <ImageView
+        android:id="@+id/image_from"
+        android:layout_width="120dp"
+        android:layout_height="100dp"
+        android:src="@mipmap/ic_launcher"
+        android:layout_marginStart="250dp"    />
+
+    </androidx.cardview.widget.CardView>
 
 </RelativeLayout>

@@ -15,9 +15,6 @@ class MainActivity : AppCompatActivity() {
     private var list = arrayListOf<Int>()
 
 
-
-
-
     private var secondList =arrayListOf<Int>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,7 +23,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         createList()
         initRecycler()
-
         btnFavorites()
     }
 
@@ -47,7 +43,7 @@ class MainActivity : AppCompatActivity() {
         adapter = MainAdapter(object : MainAdapter.OnItemClick {
             override fun onClick(image: Int) {
                 secondList.add(image)
-                binding.counterCardView.text = adapter.counterInt.toString()
+                 binding.counterCardView.text = adapter.counterInt.toString()
 
             }
 

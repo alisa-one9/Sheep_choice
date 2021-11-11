@@ -25,6 +25,12 @@ class FavoritesActivity : AppCompatActivity() {
 
     }
 
+    private fun initRecycler() {
+
+        adapter= MainAdapter(null)
+        intent.getIntegerArrayListExtra(MainActivity.IMAGE_KEY)?.let{adapter.setList(it)}
+        binding.rvFavorites.adapter =adapter
+    }
     private fun selectFromMyGallery() {
 
         binding.btnSelectFromMyGallery.setOnClickListener {
@@ -38,12 +44,5 @@ class FavoritesActivity : AppCompatActivity() {
             }
             str = result.toString()
         }
-    }
-
-    private fun initRecycler() {
-
-        adapter= MainAdapter(null)
-        intent.getIntegerArrayListExtra(MainActivity.IMAGE_KEY)?.let{adapter.setList(it)}
-        binding.rvFavorites.adapter =adapter
     }
 }
