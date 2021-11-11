@@ -8,14 +8,16 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_sheep"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-         app:spanCount="3"
+        app:spanCount="3"
         tools:itemCount="10"
-        tools:listitem="@layout/item_sheep"/>
+        tools:listitem="@layout/item_sheep" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/container_for_image"
@@ -38,8 +40,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="9dp"
-            android:text="You choose sheeps :"
-            android:textSize="25sp"
+            android:text="You have selected "
+            android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@color/black"/>
 
@@ -47,10 +49,18 @@
             android:id="@+id/counter_card_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="255dp"
+            android:layout_marginStart="180dp"
             android:text="0"
             android:textStyle="bold"
-            android:textSize="30sp"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="200dp"
+            android:text="pictures"
+            android:textStyle="bold"
+            android:textSize="20sp"
             android:textColor="@color/black"/>
 
         <com.google.android.material.button.MaterialButton

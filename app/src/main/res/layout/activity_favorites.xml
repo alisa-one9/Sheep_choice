@@ -1,22 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FavoritesActivity">
+    tools:context=".FavoritesActivity"
+    android:orientation="vertical">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_favorites"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="3"
-        tools:itemCount="10"
-        tools:listitem="@layout/item_sheep"/>
+    <ImageView
+        android:id="@+id/image_from"
+        android:layout_width="120dp"
+        android:layout_height="100dp"
+        android:src="@mipmap/ic_launcher" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_select_from_my_gallery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="select from my gallery"
+        android:layout_below="@id/image_from"
+        app:cornerRadius="16dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_favorites"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_below="@+id/btn_select_from_my_gallery"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="3"
+            tools:itemCount="10"
+            tools:listitem="@layout/item_sheep"/>
+
+
+
+</RelativeLayout>

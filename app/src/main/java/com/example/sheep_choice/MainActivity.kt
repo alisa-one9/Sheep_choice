@@ -1,17 +1,19 @@
 package com.example.sheep_choice
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.core.view.get
+import android.view.View
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts.GetContent
+import androidx.appcompat.app.AppCompatActivity
 import com.example.sheep_choice.databinding.ActivityMainBinding
-import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var adapter:MainAdapter
     private var list = arrayListOf<Int>()
+
 
 
 
@@ -24,8 +26,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         createList()
         initRecycler()
+
         btnFavorites()
     }
+
+
+
 
     private fun createList() {
         for(i in 1..30) {
@@ -39,24 +45,28 @@ class MainActivity : AppCompatActivity() {
 
     private fun initRecycler() {
         adapter = MainAdapter(object : MainAdapter.OnItemClick {
-            override fun onClick(image:Int) {
+            override fun onClick(image: Int) {
                 secondList.add(image)
+                binding.counterCardView.text = adapter.counterInt.toString()
+
             }
 
-            override fun deleteClick(image:Int) {
+            override fun deleteClick(image: Int) {
                 secondList.remove(image)
+                binding.counterCardView.text = adapter.counterInt.toString()
+
             }
 
         })
         adapter.setList(list)
         binding.rvSheep.adapter =adapter
-        binding.counterCardView.text =adapter.counterStr
+
 
     }
     private fun btnFavorites() {
-        val intent = Intent(this,FavoritesActivity::class.java)
+        val intent = Intent(this, FavoritesActivity::class.java)
         binding.btnGoSecondActivity.setOnClickListener{
-            intent.putExtra(IMAGE_KEY,secondList)
+            intent.putExtra(IMAGE_KEY, secondList)
             startActivity(intent)
 
         }

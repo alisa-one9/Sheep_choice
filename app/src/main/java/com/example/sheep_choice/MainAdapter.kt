@@ -11,8 +11,7 @@ import java.util.*
 class MainAdapter(private var onClick: OnItemClick?): RecyclerView.Adapter <MainAdapter.ViewHolder> (){
 
     private var list =arrayListOf<Int>()
-     var  counterInt: Int =0
-     var  counterStr:String? = null
+     var  counterInt: Int = 0
 
     fun setList(list:ArrayList<Int>){
         this.list.addAll(list)
@@ -38,6 +37,7 @@ class MainAdapter(private var onClick: OnItemClick?): RecyclerView.Adapter <Main
     inner class ViewHolder(private var binding: ItemSheepBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
+
         fun onBind(get: Int) {
            binding.imageView.setImageResource(get)
 
@@ -47,7 +47,6 @@ class MainAdapter(private var onClick: OnItemClick?): RecyclerView.Adapter <Main
                     binding.done.visibility = View.VISIBLE
                     onClick?.onClick(get)
                     counterInt++
-                    counterStr = counterInt as String
 
 
 
@@ -58,8 +57,7 @@ class MainAdapter(private var onClick: OnItemClick?): RecyclerView.Adapter <Main
                     binding.done.visibility = View.INVISIBLE
                     onClick?.deleteClick(get)
                     counterInt--
-                    counterStr = counterInt as String
-                }
+                                   }
             }
 
         }
